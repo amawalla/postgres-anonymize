@@ -143,5 +143,5 @@ Example call:
         --dump-file=/tmp/dump.gz \
         -v
 
-
+.. _YAML sample schema: https://github.com/amawalla/postgres-anonymize/blob/development/sample_schema.yml
 
