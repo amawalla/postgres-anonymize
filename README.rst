@@ -40,9 +40,7 @@ Features
 +----------------+----------------------+-------------------------+----------------------------------+
 
 * Note: ``faker.unique.[provider]`` only supported on Python 3.6+ (Faker library min. supported python version)
-* Note: ``uuid4`` - only for (native `uuid4`_) columns
 
-See the `documentation`_ for a more detailed description of the provided anonymization methods.
 
 Installation
 ------------
@@ -79,9 +77,27 @@ Usage
     --dump-file DUMP_FILE
                             Create a database dump file with the given name
     --init-sql INIT_SQL   SQL to run before starting anonymization
+    
+    Example command 
+    
+    
+    $ pganonymize --schema=myschema.yml \
+        --dbname=test_database \
+        --user=username \
+        --password=mysecret \
+        --host=db.host.example.com \
+        -v
+    
+    pganonymize --schema=myschema.yml \
+        --dbname=test_database \
+        --user=username \
+        --password=mysecret \
+        --host=db.host.example.com \
+        --init-sql "set search_path to non_public_search_path; set work_mem to '1GB';" \
+        -v
 
 Despite the database connection values, you will have to define a YAML schema file, that includes
-all anonymization rules for that database. Take a look at the `schema documentation`_ or the
+all anonymization rules for that database. Take a look at the
 `YAML sample schema`_.
 
 
@@ -125,30 +141,6 @@ Example call:
         --password=mysecret \
         --host=db.host.example.com \
         --dump-file=/tmp/dump.gz \
-        -v
-
-Docker
-~~~~~~
-
-If you want to run the anonymizer within a Docker container you first have to build the image:
-
-.. code-block::
-
-    $ docker build -t pganonymize .
-
-After that you can pass a schema file to the container, using Docker volumes, and call the anonymizer:
-
-.. code-block::
-
-    $ docker run \
-        -v <path to your schema>:/schema.yml \
-        -it pganonymize \
-        /usr/local/bin/pganonymize \
-        --schema=/schema.yml \
-        --dbname=<database> \
-        --user=<user> \
-        --password=<password> \
-        --host=<host> \
         -v
 
 
