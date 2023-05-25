@@ -1,4 +1,4 @@
-pganonymize
+postgres-anonymize
 ===========
 
 A commandline tool to anonymize PostgreSQL databases for DSGVO/GDPR purposes.
@@ -6,13 +6,6 @@ A commandline tool to anonymize PostgreSQL databases for DSGVO/GDPR purposes.
 It uses a YAML file to define which tables and fields should be anonymized and provides various methods of
 anonymization. The tool requires a direct PostgreSQL connection to perform the anonymization.
 
-.. class:: no-web no-pdf
-
-    |python| |license| |pypi| |downloads| |build| |health|
-
-.. image:: docs/_static/demo.gif
-
-.. contents::
 
 Features
 --------
@@ -159,28 +152,4 @@ After that you can pass a schema file to the container, using Docker volumes, an
         -v
 
 
-.. _uuid4: https://www.postgresql.org/docs/current/datatype-uuid.html
-.. _documentation: https://pganonymize.readthedocs.io/en/latest/
-.. _schema documentation: https://python-postgresql-anonymizer.readthedocs.io/en/latest/schema.html
-.. _YAML sample schema: https://github.com/rheinwerk-verlag/pganonymize/blob/master/sample_schema.yml
-
-.. |python| image:: https://img.shields.io/pypi/pyversions/pganonymize
-    :alt: PyPI - Python Version
-
-.. |license| image:: https://img.shields.io/badge/license-MIT-green.svg
-    :target: https://github.com/rheinwerk-verlag/pganonymize/blob/master/LICENSE.rst
-
-.. |pypi| image:: https://badge.fury.io/py/pganonymize.svg
-    :target: https://badge.fury.io/py/pganonymize
-
-.. |downloads| image:: https://static.pepy.tech/personalized-badge/pganonymize?period=total&units=international_system&left_color=blue&right_color=black&left_text=Downloads
-    :target: https://pepy.tech/project/pganonymize
-    :alt: Download count
-
-.. |build| image:: https://github.com/rheinwerk-verlag/postgresql-anonymizer/workflows/Test/badge.svg
-    :target: https://github.com/rheinwerk-verlag/pganonymize/actions
-
-.. |health| image:: https://snyk.io/advisor/python/pganonymize/badge.svg
-  :target: https://snyk.io/advisor/python/pganonymize
-  :alt: pganonymize
 
